@@ -39,6 +39,14 @@ chown -R $(id -u):$(id -g) /web-code-source
 echo "chown DONE"
 CMD
 
+echo "debug root folder"
+pwd
+ls -la
+echo "debug web-code folder"
+ls -la web-code-source
+echo "debug service folder"
+ls -la web-code-source/$PACKAGE
+
 # copy contents of web-code-source to the working directory
 cp -a web-code-source/* .
 
