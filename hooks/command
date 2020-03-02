@@ -40,6 +40,8 @@ function retry {
   done
 }
 
+echo_and_run() { echo "\$ $*" ; "$@" ; }
+
 echo "Running ${CMD} for ${PACKAGE} in ${IMAGE}"
 
 mkdir -p web-code-source && chmod a+w web-code-source
@@ -52,7 +54,7 @@ else
   echo "!!! :docker: Pull docker image failed: $IMAGE"
 fi
 
-docker run \
+echo_and_run docker run \
   -v ${PWD}/web-code-source:/web-code-source \
   -i \
   --rm \
