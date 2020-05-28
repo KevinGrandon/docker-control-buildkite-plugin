@@ -112,3 +112,5 @@ else
   echo "+++ :docker: docker-control run" >&2
   IMAGE=$IMAGE docker-compose $VERBOSE -f $COMPOSE_FILE run --rm $SERVICE bash $SCRIPT
 fi
+
+docker-compose -f $COMPOSE_FILE logs --tail="all"
